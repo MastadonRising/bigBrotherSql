@@ -13,12 +13,14 @@ db.connection = connection;
 
 //Models/tables
 db.employee = require('../models/employee')(connection, Sequelize);
-db.comments = require('../models/dept.js')(connection, Sequelize);
+db.dept = require('../models/dept.js')(connection, Sequelize);
 db.role = require('../models/role.js')(connection, Sequelize);
-
+db.manager = require('../models/employee')(connection, Sequelize);
 //Relations
+db.dept.sync({alter: true});
+ db.role.sync({alter: true});
+db.employee.sync({alter: true});
 db.manager.belongsTo(db.employee);
-db.dept.belongsTo(db.role);
+db.role.belongsTo(db.dept);
 db.role.belongsTo(db.employee);
-
 module.exports = db;
