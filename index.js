@@ -1,8 +1,8 @@
-const cTable = require("console.table");
-const prompt = require("./inquierer");
+const inquirer = require('inquirer');
+const prompt = require("./lib/questions");
 const db= require('./config/db');
 async function init(){
-    prompt.init()
+    inquirer.prompt(prompt.init)
         .then(answers=>{
             console.log(answers);
             
