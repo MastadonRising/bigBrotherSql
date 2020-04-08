@@ -28,11 +28,3 @@ async function init(){
 
 init();
 
-// const deptList =  db.dept.findAll({attributes:['name']}).then(function(departments){
-//     let dept=[];
-//     departments.forEach(element => {dept.push(element.dataValues[0].name)    
-//     });
-// })
-
-// console.log(deptList);
-    

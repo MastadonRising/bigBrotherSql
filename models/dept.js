@@ -3,7 +3,8 @@ module.exports = (connection, DataTypes) => {
         id: {type: DataTypes.INTEGER,
             primaryKey: true},
         name: {type: DataTypes.STRING}},
-        {freezeTableName: true});
+        {freezeTableName: true}
+        );
         return Dept;
     };
    
