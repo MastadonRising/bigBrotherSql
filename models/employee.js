@@ -5,8 +5,15 @@ module.exports = (connection, DataTypes) => {
             primaryKey: true},
         first_name: DataTypes.STRING,
         last_name: DataTypes.STRING,
-        role_id: DataTypes.INTEGER,
-        manager_id: DataTypes.INTEGER
+        roleId: DataTypes.INTEGER,
+        managerId: DataTypes.INTEGER
     },{freezeTableName: true});
-        return Employee;
+    Employee.associate = function(models) {
+        Employee.belongsTo(models.role, {
+            foreignKey: {
+            allowNull: false
+            }
+        });
+    };
+    return Employee;
     };
